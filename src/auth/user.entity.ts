@@ -20,4 +20,9 @@ export class User extends BaseEntity {
 
   @Column()
   salt: string;
+
+
+  async validatePassword(password: string): Promise<boolean>{
+      const hash = await Crypto.has
+  }
 }
