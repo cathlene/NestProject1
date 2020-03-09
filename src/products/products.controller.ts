@@ -11,6 +11,7 @@ import {
   NotFoundException,
   Query,
   ParseIntPipe,
+  UseGuards,
 } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
@@ -18,8 +19,10 @@ import { ProductColorValidationPipe } from './pipes/product-color-validation.pip
 import { GetProductsFitlerDto } from './dto/get-products-filter.dto';
 import { Product } from './product.entity';
 import { ProductColor } from './product-color.enum';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('products')
+@UseGuards(AuthGuard())
 export class ProductsController {
   constructor(private productsService: ProductsService) {}
 
